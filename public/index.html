@@ -34,7 +34,7 @@
                 if (this.readyState == 4 && this.status == 200) {
                     var data = JSON.parse(this.responseText);
                     var latestVersion = data.version;
-                    var currentVersion = "RL0020-STAGING";
+                    var currentVersion = "RL000-STAGING";
                     if (currentVersion != latestVersion) {
                         // If the current version is not equal to the latest version, display a message asking the user to update
                         document.getElementById("ALBOX").innerHTML = "<div id='ALExclamation'></div> <text><b>Update (" + latestVersion + ") is available, read latest changelog..</b></text>";

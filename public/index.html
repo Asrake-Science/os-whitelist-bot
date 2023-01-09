@@ -1,1 +1,678 @@
+<!DOCTYPE html>
 
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>
+    swagpex authentication server
+</title>
+<link id="ctl00_Imports" rel="stylesheet" type="text/css" href="./stylesheet/main.css" />
+<link id="ctl00_Link1" rel="icon"
+    type="https://cdn.discordapp.com/emojis/1061804115367305287.gif?size=96&quality=lossless"
+    href="https://cdn.discordapp.com/emojis/1061804115367305287.gif?size=96&quality=lossless" />
+<link rel="Stylesheet" type="text/css" href="./stylesheet/secondary.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="author" content="ROBLOX Corporation" />
+<meta id="ctl00_metadescription" name="description"
+    content="Free Games and Building Games!  A virtual world for kids with user-created castles, cars, spaceships, swords, battles, trucks, zombies and awesome destruction.  Build, battle, chat, or just hang out online." />
+<meta id="ctl00_metakeywords" name="keywords" content="free games, online games, building games, virtual world" />
+<meta name="google-site-verification" content="alM52ZeUABx_edKTvoawL3_tQ4VVr49r7IjWdBFMKPA" />
+</head>
+
+
+
+<body>
+    <div id="MasterContainer">
+
+        <div style="width: 100%">
+
+        </div>
+
+
+        <script>
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = JSON.parse(this.responseText);
+                    var latestVersion = data.version;
+                    var currentVersion = "RL0020-STAGING";
+                    if (currentVersion != latestVersion) {
+                        // If the current version is not equal to the latest version, display a message asking the user to update
+                        document.getElementById("ALBOX").innerHTML = "<div id='ALExclamation'></div> <text><b>Update (" + latestVersion + ") is available, read latest changelog..</b></text>";
+                    } else {
+                        // If the current version is equal to the latest version, remove the ALBOX div element and fetch repository stats from the GitHub API
+                        var ALBOX = document.getElementById("ALBOX");
+                        ALBOX.parentNode.removeChild(ALBOX);
+                        
+                            };
+                    }
+                };
+
+            xhttp.open("GET", "https://raw.githubusercontent.com/Asrake-Science/os-whitelist-bot/main/version.json", true);
+            xhttp.send();
+        </script>
+
+
+        <div id="Container">
+            <div id="HeaderContainer">
+
+
+
+
+                <div id="Header">
+                    <div id="Banner">
+
+
+
+
+                        <a id="Logo" href="./assetstorage/github-logo.svg" style="cursor: pointer; border: none;"></a>
+
+
+
+
+
+
+                    </div>
+
+
+                    <script type="text/javascript" language="javascript">
+                        function toggleDropDownNav() {
+                            if ($(".dropdownnavcontainer:visible").size() > 0) {
+                                $(".dropdownnavcontainer").hide();
+                                $("#gamesMenuToggle").css("background-position", "0 0");
+                            }
+                            else {
+                                $(".dropdownnavcontainer").show();
+                                $("#gamesMenuToggle").css("background-position", "0 -6px");
+                            }
+                        }
+                    </script>
+
+                    <div class="Navigation">
+                        <div class="dropdownnavcontainer">
+                            <div class="dropdownmainnav" style="z-index:1023;">
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/all-games'">
+                                    <img src="./assetstorage/LOL.png">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/all-games"
+                                        title="All"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">All</a>
+                                </div>
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/town-and-city-games'">
+                                    <img src="./assetstorage/City.png">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/town-and-city-games"
+                                        title="Town and City"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">Town and
+                                        City</a>
+                                </div>
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/medieval-games'">
+                                    <img src="./assetstorage/Castle.png">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/medieval-games"
+                                        title="Fantasy"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">Fantasy</a>
+                                </div>
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/sci-fi-games'">
+                                    <img src="./assetstorage/SciFi.png">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/sci-fi-games"
+                                        title="Sci-Fi"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">Sci-Fi</a>
+                                </div>
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/ninja-games'">
+                                    <img src="./assetstorage/Ninja.png">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/ninja-games"
+                                        title="Ninja"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">Ninja</a>
+                                </div>
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/scary-games'">
+                                    <img src="./assetstorage/Cthulu.png">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/scary-games"
+                                        title="Scary"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">Scary</a>
+                                </div>
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/pirate-games'">
+                                    <img src="./assetstorage/Pirate.png">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/pirate-games"
+                                        title="Pirate"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">Pirate</a>
+                                </div>
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/adventure-games'">
+                                    <img src="./assetstorage/Adventure.png">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/adventure-games"
+                                        title="Adventure"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">Adventure</a>
+                                </div>
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/sports-games'">
+                                    <img src="./assetstorage/Sports.png">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/sports-games"
+                                        title="Sports"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">Sports</a>
+                                </div>
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/funny-games'">
+                                    <img src="./assetstorage/LOL.png">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/funny-games"
+                                        title="Funny"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">Funny</a>
+                                </div>
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/wild-west-cowboy-games'">
+                                    <img src="./assetstorage/WildWest.png">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/wild-west-cowboy-games"
+                                        title="Wild West"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">Wild
+                                        West</a>
+                                </div>
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/war-games'">
+                                    <img src="./assetstorage/ModernMilitary.png">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/war-games"
+                                        title="War"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">War</a>
+                                </div>
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/skatepark-games'">
+                                    <img src="./assetstorage/Skatepark.png">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/skatepark-games"
+                                        title="Skate Park"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">Skate
+                                        Park</a>
+                                </div>
+
+                                <div style="float: left; width: 50%; text-align: left;"
+                                    onclick="window.location = '/gametutorials-games'">
+                                    <img src="./assetstorage/Tutorial.gif">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/gametutorials-games"
+                                        title="Tutorial"
+                                        style="padding: 0; margin: 0 2px 0 0; border: none; font-size: 15px;">Tutorial</a>
+                                </div>
+
+                            </div>
+                            <div class="dropdownmainnav" style="width:145px;border-left:0px;z-index:1023">
+                                <div onclick="window.location = '/games.aspx'"><a
+                                        href="http://web.archive.org/web/20110430180102/http://www.roblox.com/games.aspx"
+                                        style="font-size:15px;"><b>Most Popular</b></a><br></div>
+                                <div onclick="window.location = '/games.aspx?m=TopFavorites'"><a
+                                        href="http://web.archive.org/web/20110430180102/http://www.roblox.com/games.aspx?t=PastWeek&amp;m=TopFavorites"
+                                        style="font-size:15px;">Top Favorites</a><br></div>
+                                <div onclick="window.location = '/games.aspx?m=Featured'"><a
+                                        href="http://web.archive.org/web/20110430180102/http://www.roblox.com/games.aspx?m=Featured"
+                                        style="font-size:15px;">Featured Games</a><br></div>
+                                <div
+                                    onclick="window.location = '/Catalog.aspx?m=TopFavorites&amp;c=9&amp;t=AllTime&amp;d=All&amp;q='">
+                                    <a href="http://web.archive.org/web/20110430180102/http://www.roblox.com/Catalog.aspx?m=TopFavorites&amp;c=9&amp;t=AllTime&amp;d=All&amp;q="
+                                        style="font-size:15px;">Search Games</a>
+                                </div>
+                            </div>
+                        </div>
+                        <ul id="ctl00_Menu_MenuUL">
+
+                            <li><a id="hlNews" href="https://discord.gg/asrake" target="_blank" title="News">
+                                    <h2>News</h2>
+                                </a><a id="hlNewsFeed"
+                                    href="http://web.archive.org/web/20110430180102/http://blog.roblox.com/?feed=rss"
+                                    title="RSS" class="icons rss_icon"
+                                    style="padding: 0; margin: 0 4px 0 0; border: none;"></a> <a style="display:none;"
+                                    id="h1Twitter"
+                                    href="http://web.archive.org/web/20110430180102/http://www.twitter.com/roblox"
+                                    target="_blank" title="The ROBLOX Twitter Feed" class="icons twitter_icon"></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ALBOX"></div>
+                <div id="Exclamation"></div>
+
+
+
+
+            <div id="Body">
+
+
+
+                <style>
+                    /* override 2 column layout classes for this page only because the front page requires a wider right column */
+                    .Column1c {
+                        font-family: Verdana;
+                        width: 570px;
+                        float: left;
+                    }
+
+                    .Column2c {
+                        font-family: Verdana;
+                        width: 310px;
+                        float: right;
+                    }
+
+                    .Column1c .ShadowedStandardBox {
+                        width: 561px;
+                    }
+
+                    .Column1c .ShadowedStandardBoxHeader {
+                        width: 551px;
+                    }
+
+                    .Column2c .ShadowedStandardBox {
+                        width: 310px;
+                    }
+
+                    .Column2c .ShadowedStandardBoxHeader {
+                        width: 300px;
+                    }
+
+                    .DontLogout {
+                        float: right;
+                        margin-left: 80px;
+                    }
+                </style>
+
+                <!--[if IE 6]>
+<table width="900px">
+<tr>
+<td width="550px" align="left" valign="top">
+<![endif]-->
+
+
+                <div class="ShadowedStandardBox" style="float: left; margin:13px 0px 0px;">
+
+                    <!--div class="Shadow"></div-->
+                    <!-- <div class="Header">Welcome</div> -->
+
+                </div>
+
+                <!--[if IE 6]>
+</td>
+<td valign="top" align="left">
+<![endif]-->
+                <!-- right column -->
+                <div class="Column2c">
+
+
+
+                    <div class="ShadowedStandardBox">
+                        <div class="Shadow"></div>
+                        <div class="Header"><span>What it do</span></div>
+                        <div class="Content" style="padding: 5px 5px 5px 5px; height: 145px">
+                            <div>
+                                <div>
+
+
+                                    <div style="float: left; width: 195px;">This Project manages a webserver hosted
+                                        locally, being monitored by a DISCORD Bot, and cannot be accessed by any
+                                        ordinary browser.</div>
+                                    <div style="float: right; margin-left: 10px;">
+                                        <a href="https://github.com/Asrake-Science/os-whitelist-bot"
+                                            id="ctl00_cphRoblox_TrusteeSeal">
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                                                id="" height="60" border="0">
+                                        </a>
+                                    </div>
+
+
+
+                                </div>
+
+                                <div style="clear: both; margin-top: 10px;">
+                                    <br>
+                                    <div style="margin: 2px 0px; float: left;">swagpex is NOT liable for any drama
+                                        regarding your failure.</div>
+                                    <a id="ctl00_cphRoblox_LearnMore" class="Button"
+                                        href="https://github.com/Asrake-Science/os-whitelist-bot"
+                                        style="display:inline-block;width:60px;padding-left: 8px; padding-right: 8px;">Learn
+                                        More</a>
+                                    <a id="ctl00_cphRoblox_AccessParentAccount" class="Button"
+                                        href="https://discord.gg/asrake"
+                                        style="display:inline-block;width:90px;padding-left: 8px; padding-right: 8px;">Got
+                                        any Bugs?</a>
+                                    <a id="ctl00_cphRoblox_PrivacyPolicy" class="Button" href="liability"
+                                        style="display:inline-block;width:80px;padding-left: 8px; padding-right: 8px;">Liability</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ShadowedStandardBox">
+                        <div class="Shadow"></div>
+                        <div class="Header"><span>Webserver Facts</span></div>
+                        <div class="Content" style="height: 115px;">
+
+                            <div class="Centered">
+                                <div id="RandomFactsContainer">
+                                    <div id="ctl00_cphRoblox_RandomFacts_pRandomFacts">
+
+                                        <style>
+                                            .RandomFactContainer {
+                                                width: 250px;
+                                                height: 50px;
+                                                margin: 5px 5px 5px 5px;
+                                            }
+
+                                            .RandomFactImageContainer {
+                                                float: left;
+                                                width: 32px;
+                                                height: 32px;
+                                            }
+
+                                            .RandomFactTextContainer {
+                                                float: right;
+                                                width: 200px;
+                                                text-align: center;
+                                            }
+                                        </style>
+
+                                        <div style="position: relative; width: 100%; height: 100%;">
+                                            <div id="RandomFactContainer1" class="RandomFactContainer"
+                                                style="position: absolute; top: 3px;">
+                                                <div id="RandomFactImageContainer1" class="RandomFactImageContainer">
+                                                    <img height="50" width="50" id="RandomFactImage1"
+                                                        src="./assetstorage/man_opensource.gif">
+
+                                                </div>
+                                                <div id="RandomFactTextContainer1" class="RandomFactTextContainer">
+                                                    <br>
+                                                    <center><b>This project is open sourced!</b></center>
+                                                </div>
+                                            </div>
+
+                                            <div id="RandomFactContainer2" class="RandomFactContainer"
+                                                style="position: absolute; top: 53px;">
+                                                <div id="RandomFactImageContainer2" class="RandomFactImageContainer">
+                                                    <img height="50" width="50" id="RandomFactImage2"
+                                                        src="./assetstorage/man_HELLYEAH.gif">
+                                                </div>
+                                                <div id="RandomFactTextContainer2" class="RandomFactTextContainer">
+                                                    <br>
+                                                    <center><b>Webserver is Online and secured!</b></center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="ShadowedStandardBox">
+                        <div class="Shadow"></div>
+                        <div class="Header"><span>Webserver Usage</span></div>
+                        <div class="Content" style="height: 115px;">
+
+                            <div class="Centered">
+                                <div id="WSUsageContainer">
+                                    <div
+                                        style="background: url(./assetstorage/BulletPointArrow.png) no-repeat center left; padding-left: 13px; margin-bottom: 4px;">
+                                        <a id="ctl00_cphRoblox_NewsFeed_dlNews_ctl01_NewsItemHyperLink"
+                                            href="https://github.com/Asrake-Science/os-whitelist-bot">We're Open
+                                            Source!</a>
+                                    </div>
+
+                                    <div
+                                        style="background: url(./assetstorage/BulletPointArrow.png) no-repeat center left; padding-left: 13px; margin-bottom: 4px;">
+                                        <a id="ctl00_cphRoblox_NewsFeed_dlNews_ctl01_NewsItemHyperLink"
+                                            href="https://github.com/Asrake-Science/os-whitelist-bot">We're Open
+                                            Source!</a>
+                                    </div>
+                                    <div
+                                        style="background: url(./assetstorage/BulletPointArrow.png) no-repeat center left; padding-left: 13px; margin-bottom: 4px;">
+                                        <a id="ctl00_cphRoblox_NewsFeed_dlNews_ctl01_NewsItemHyperLink"
+                                            href="https://github.com/Asrake-Science/os-whitelist-bot">We're Open
+                                            Source!</a>
+                                    </div>
+                                    <div
+                                        style="background: url(./assetstorage/BulletPointArrow.png) no-repeat center left; padding-left: 13px; margin-bottom: 4px;">
+                                        <a id="ctl00_cphRoblox_NewsFeed_dlNews_ctl01_NewsItemHyperLink"
+                                            href="https://github.com/Asrake-Science/os-whitelist-bot">We're Open
+                                            Source!</a>
+                                    </div>
+                                    <div
+                                        style="background: url(./assetstorage/BulletPointArrow.png) no-repeat center left; padding-left: 13px; margin-bottom: 4px;">
+                                        <a id="ctl00_cphRoblox_NewsFeed_dlNews_ctl01_NewsItemHyperLink"
+                                            href="https://github.com/Asrake-Science/os-whitelist-bot">We're Open
+                                            Source!</a>
+                                    </div>
+                                    <div
+                                        style="background: url(./assetstorage/BulletPointArrow.png) no-repeat center left; padding-left: 13px; margin-bottom: 4px;">
+                                        <a id="ctl00_cphRoblox_NewsFeed_dlNews_ctl01_NewsItemHyperLink"
+                                            href="https://github.com/Asrake-Science/os-whitelist-bot">We're Open
+                                            Source!</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="ShadowedStandardBox">
+                        <div class="Shadow"></div>
+                        <div class="Header"><span>Changelog</span></div>
+                        <div class="Content" style="height: 115px;">
+
+                            <div class="Centered">
+                                <div id="NewsFeeder" style="width: 100%;">
+                                    <div id="ctl00_cphRoblox_NewsFeed_pRobloxNews">
+
+
+                                        <div id="RobloxNews"
+                                            style="float: none; width: 100%; overflow: visible; font-size: 11px;">
+                                            <div style="margin-bottom: 15px;">
+
+
+                                                <div
+                                                    style="background: url(./assetstorage/BulletPointArrow.png) no-repeat center left; padding-left: 13px; margin-bottom: 4px;">
+                                                    <a id="ctl00_cphRoblox_NewsFeed_dlNews_ctl01_NewsItemHyperLink"
+                                                        href="/changelog/latest">Pre-Release</a>
+                                                </div>
+
+                                               
+
+
+                                            </div>
+                                            <div style="text-align: right;">
+                                                <a id="ctl00_cphRoblox_NewsFeed_PrivacyPolicy" class="Button"
+                                                    href="./assetstorage/bg_clouds.jpg"
+                                                    style="display:inline-block;width:50px;">More...</a>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- left column -->
+                <div class="Column1c">
+
+                    <div class="ShadowedStandardBox">
+                        <div class="Shadow"></div>
+                        <!-- <div class="Header">Games</div> -->
+                        <div class="Content" style="height: 459px; padding: 0px 0px 0px 0px;">
+
+                            <div style="margin-top: 5px; margin-left: 3px; width: 550px;">
+
+                                <a id="ctl00_cphRoblox_MoneyMachine_PlayNowButton" href=""><img
+                                        src="./assetstorage/git-ad.png" alt="" style="border-width:0px;"></a>
+
+                            </div>
+
+                            <div style="margin-left: 7px; margin-top: 20px; width: 541px;">
+
+
+                                <style>
+                                    .PlaceStatLabel {
+                                        /* intentionally empty */
+                                    }
+
+                                    .PlaceStatValue {
+                                        /* color: #888; */
+                                        margin-left: 15px;
+                                        font-weight: bold;
+                                    }
+                                </style>
+
+                                <div>
+                                    <div class="OutlineBox" style="height: 250px;">
+                                        <div class="OB_HeaderPositioner">
+                                            <div class="OB_Header">
+                                                <div style="overflow:hidden; white-space: nowrap;"><span
+                                                        style="font-size: 12px;">WELCOME TO YOUR OWN WHITELIST SERVER!</span><span
+                                                        id="ctl00_cphRoblox_FeaturedGames_GameName"></span></div>
+                                            </div>
+                                        </div>
+                                        <div class="OB_Content">
+                                            <div style="float: left;">
+                                                <div class="ShadowedStandardBox"
+                                                    style="width: 420px; height: 230px; margin: 0px 8px 0px 5px; ">
+                                                    <div class="Shadow"></div>
+                                                    <a id="ctl00_cphRoblox_FeaturedGames_AssetThumbnailImage"
+                                                        disabled="disabled"
+                                                        title="This cat is so silly, am i right??? so silly :3" href=""
+                                                        style="display:inline-block;height:230px;width:420px;"><img
+                                                            height="230" width="420"
+                                                            src="./assetstorage/godiloveuranium376.png" border="0"
+                                                            onerror="return Roblox.Controls.Image.OnError(this)"
+                                                            alt="beautiful cat with tounge out loving U-376"></a>
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="float: left; font-size:10px; width: 100px; white-space: nowrap; overflow: hidden;">
+
+                                                <script>
+                                                    fetch("https://api.github.com/repos/Asrake-Science/os-whitelist-bot")
+                                                        .then((res) => res.json())
+                                                        .then((repoData) => {
+                                                            // Set the text of the Favorited div element to the number of stars
+                                                            document.getElementById("ForkCount").innerHTML = repoData.forks_count;
+
+                                                            // Set the text of the Favorited div element to the number of stars
+                                                            document.getElementById("Favorited").innerHTML = repoData.stargazers_count;
+
+                                                            // Set the text of the ctl00_cphRoblox_FeaturedGames_VisitedPanel div element to the number of watchers
+                                                            document.getElementById("ctl00_cphRoblox_FeaturedGames_VisitedPanel").innerHTML = repoData.watchers_count;
+                                                        })
+                                                        .catch((err) => {
+                                                            console.log(err);
+                                                        });
+                                                </script>
+
+                                                <script>
+                                                    fetch("https://api.github.com/repos/Asrake-Science/os-whitelist-bot/commits")
+                                                        .then((res) => res.json())
+                                                        .then((commits) => {
+                                                            // Set the text of the LastUpdate div element to the latest commit message
+                                                            document.getElementById("LastUpdate").innerHTML = commits[0].commit.author.name;
+                                                        })
+                                                        .catch((err) => {
+                                                            console.log(err);
+                                                        });
+                                                </script>
+                                                <div id="LastUpdateLabelDiv" class="PlaceStatLabel">Maintained by:</div>
+                                                <div id="LastUpdate" class="PlaceStatValue">failed to fetch</div>
+                                                <div id="FavoritedLabelDiv" class="PlaceStatLabel">Total Stars:
+                                                </div>
+                                                <div id="Favorited" class="PlaceStatValue">failed to fetch</div>
+                                                <div id="VisitedPanelLabelDiv" class="PlaceStatLabel">Total Watchers:
+                                                </div>
+                                                <div id="ctl00_cphRoblox_FeaturedGames_VisitedPanel"
+                                                    class="Visited PlaceStatValue">failed to fetch</div>
+                                                <div id="LastUpdateLabelDiv" class="PlaceStatLabel">Total Forks:</div>
+                                                <div id="ForkCount" class="PlaceStatValue">failed to fetch</div>
+                                                <div id="CreatorAvatar" style="margin-top: 7px;white-space:normal">
+                                                    <div class="Avatar">
+                                                        <a id="ctl00_cphRoblox_FeaturedGames_AvatarImage"
+                                                            title="FlyingCokeCan"
+                                                            href="https://www.roblox.com/users/16561657/profile"
+                                                            style="display:inline-block;height:100px;width:100px;cursor:pointer;"><img
+                                                                height="100" width="100"
+                                                                src="https://tr.rbxcdn.com/841ef203566916cdbeeb93d0fe8fdd29/352/352/Avatar/Png"
+                                                                border="0"
+                                                                onerror="return Roblox.Controls.Image.OnError(this)"
+                                                                alt="Beta2"
+                                                                blankurl="http://t6ak.roblox.com/blank-100x100.gif"></a>
+                                                    </div>
+                                                </div>
+                                                <div id="CreatorLabelDiv" class="PlaceStatLabel">By: <a
+                                                        id="ctl00_cphRoblox_FeaturedGames_CreatorHyperLink"
+                                                        href="https://www.roblox.com/users/16561657/profile">FlyingCokeCan</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- bottom of page (outside columns) -->
+
+                <br clear="all">
+            </div>
+
+            <div id="Footer">
+                <div class="FooterNav">
+                    <a id="ctl00_rbxFooter_PrivacyHyperLink" href="liability"><b>Liability Agreement</b></a>
+                    &nbsp;|&nbsp;
+                    <a id="ctl00_rbxFooter_AdvertiseHyperLink" href="https://discord.gg/4kRf7vVfrt">Official Help
+                        Discord</a>
+
+                </div>
+                <div class="FooterNav">
+
+                </div>
+                <p class="Legalese">
+                    SWAGPEX, "SWAGPEX Hub", authentication service, whitelisting , and all related indicia are
+                    trademarks of <a id="ctl00_rbxFooter_hlRobloxCorporation"
+                        href="https://www.roblox.com/groups/6962275/Asrake-Science-Incorporated#!/about">ASRAKE Science
+                        Incorporated</a>, ©2023. Patents pending.
+                    <br>SWAGPEX is not sponsored by anyone, it is solely a project made among friends<br> any illicit
+                    usage of our open source authserver is not in our liability.<br>Use of this site signifies your
+                    acceptance of the <a id="ctl00_rbxFooter_hlTermsOfService" href="liability">Liability Agreement</a>.
+                    <br>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    </form>
+</body>
+
+</html>

@@ -19,7 +19,7 @@ module.exports = {
                 .setTitle('swagpex hub')
                 .setDescription(`${thingymabob}lua\n_G.Key = "${result.key}"\nloadstring(game:HttpGet("https://wls.swagpex.net/loader"))()\n${thingymabob}`)
                 .setColor(0x00AE86)
-                .setFooter(`Whitelist System created by swagpex | Hosted by supex#5629`)
+                .setFooter(`Whitelist System created by supexian`)
                 .setTimestamp();
             await tosend.send({ embeds: [embed] });
             await interaction.reply({content: "I have DM'ed you the key.", ephemeral: true})

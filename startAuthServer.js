@@ -104,7 +104,7 @@ function sendUnauthorizedNotification(req) {
   };
 
   request.post({
-    url: 'INSERT-YOUR-WEBHOOK-HERE',
+    url: process.env.discordWebhook,
     json: payload
   }, (error, res, body) => {
     if (error) {
@@ -143,7 +143,7 @@ function sendToDiscordWebhook(req, userId) {
   };
 
   request.post({
-    url: 'INSERT-YOUR-WEBHOOK-HERE',
+    url: process.env.discordWebhook,
     json: payload
   }, (error, res, body) => {
     if (error) {
@@ -231,7 +231,7 @@ function sUN_Script(req) {
   };
 
   request.post({
-    url: 'INSERT-YOUR-WEBHOOK-HERE',
+    url: process.env.discordWebhook,
     json: payload
   }, (error, res, body) => {
     if (error) {

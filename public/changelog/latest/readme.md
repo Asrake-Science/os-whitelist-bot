@@ -1,6 +1,22 @@
-# 👑 swagpex auth - RL001 👑
+<p align="center">
+  <img width="" src="https://raw.githubusercontent.com/Asrake-Science/os-whitelist-bot/main/public/stylesheet/assetstorage/allalalaa.png" />
+</p>
+<h1 align="center">👑 SWAGPEX AUTH - RL001 👑</h1>
 
-https://cdn.discordapp.com/attachments/1059780732412776498/1062350887470759977/RDT_20221227_190900.mp4
+<p align="center">
+<a>
+ <img src="https://img.shields.io/badge/Version-RL--001-brightgreen"/>
+</a>
+  <a href="https://discord.gg/4kRf7vVfrt">
+    <img src="https://img.shields.io/discord/1012316104061890710?color=7489d5&logo=discord&logoColor=ffffff" />
+  </a>
+</p>
+<p align="center>
+
+<video width="320" height="240" controls>
+  <source src="https://user-images.githubusercontent.com/70854720/211556498-a300d44a-f35f-4993-9873-0b8599cd08c9.mp4" type="video/mp4">
+</video>
+</p>
 
 *   Bugtests
 

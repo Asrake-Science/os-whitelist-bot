@@ -68,11 +68,9 @@ app.post('/dibebabebube', (req, res) => {
   });
 });
 
-
-app.use('/scheck', express.static('public'));
 app.use('/auth', express.static('public'));
 app.use('/script', express.static('public'));
-app.use('/', express.static('kekland'));
+app.use('/', express.static('public'));
 const options = {
   cert: fs.readFileSync('./SSL/certificate.crt'),
   key: fs.readFileSync('./SSL/private.key')

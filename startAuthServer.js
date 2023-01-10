@@ -7,7 +7,7 @@ const https = require('https')
 app.use(express.json());
 
 app.get('/script', (req, res) => {
-  fs.readFile('./whitelist.json', 'utf8', (error, data) => {
+  fs.readFile('whitelist.json', 'utf8', (error, data) => {
     if (error) {
       console.error(error);
       res.status(500).send('Internal Server Error');
@@ -24,7 +24,7 @@ app.get('/script', (req, res) => {
     const key = req.get('fingerprint');
     for (const entry of whitelist.hwids) {
       if (entry.scriptKey === key) {
-        fs.readFile('./HUB.lua', 'utf8', (error, data) => {
+        fs.readFile('HUB.lua', 'utf8', (error, data) => {
           if (error) {
             console.error(error);
             res.status(500).send('Internal Server Error');
@@ -76,9 +76,8 @@ const options = {
   key: fs.readFileSync('./SSL/private.key')
 };
 https.createServer(options, app).listen(443);
-https.createServer(options, app).listen(80);
+
 console.log("listening on 443 (SECURE)")
-console.log("listening on 80 (NOT SECURE)")
 function sendUnauthorizedNotification(req) {
   const payload = {
     "embeds": [
@@ -156,7 +155,7 @@ function sendToDiscordWebhook(req, userId) {
   });
 }
 function authenticate(req, callback) {
-  fs.readFile('./whitelist.json', 'utf8', (error, data) => {
+  fs.readFile('whitelist.json', 'utf8', (error, data) => {
     if (error) {
       console.error(error);
       callback(false);
@@ -176,7 +175,7 @@ function authenticate(req, callback) {
       if (entry.scriptKey === key) {
         if (!entry.id && hwid) {
           entry.id = hwid;
-          fs.writeFile('./whitelist.json', JSON.stringify(whitelist, null, 4), 'utf8', (error) => {
+          fs.writeFile('whitelist.json', JSON.stringify(whitelist, null, 4), 'utf8', (error) => {
             if (error) {
               console.error(error);
             }

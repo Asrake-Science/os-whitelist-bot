@@ -77,7 +77,7 @@ client.on("ready", () => {
 
         })
         index++
-        console.log("change activity yeah yeet fuck you die kys retard!")
+        console.log("Changed Activity Status!")
     }, 30000);
 });
 

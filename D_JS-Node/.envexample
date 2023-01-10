@@ -1,0 +1,4 @@
+botID=BOT-ID-HERE
+oauthv2link=https://discord.com/api/oauth2/authorize?client_id=BOT-ID-HERE&permissions=303935389505&scope=bot%20applications.commands
+token=token-goes-here
+port=6969

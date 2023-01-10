@@ -1,0 +1,46 @@
+{
+  "name": "os-whitelist-bot",
+  "version": "0.0.1",
+  "description": "easy whitelisting bot, can be hosted on a webserver",
+  "main": "startAuthServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asrake-Science/os-whitelist-bot.git"
+  },
+  "keywords": [
+    "open",
+    "source",
+    "ROBLOX",
+    "whitelisting",
+    "service",
+    "luraph",
+    "luauth",
+    "luarmor",
+    "free",
+    "whitelist",
+    "synapse",
+    "x"
+  ],
+  "author": "supexian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Asrake-Science/os-whitelist-bot/issues"
+  },
+  "homepage": "https://github.com/Asrake-Science/os-whitelist-bot#readme",
+  "dependencies": {
+    "@discordjs/rest": "^1.5.0",
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "enmap": "^5.9.5",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "https": "^1.0.0",
+    "humanize-duration": "^3.27.3",
+    "moment": "^2.29.4",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  }
+}

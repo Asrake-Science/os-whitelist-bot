@@ -1,0 +1,27 @@
+{
+    "name": "wl bot",
+    "description": "easy whitelisting bot, can be hosted on a webserver",
+    "repository": "https://github.com/Asrake-Science/os-whitelist-bot",
+    "logo": "https://media.discordapp.net/attachments/921463803521159204/933913226591236126/MMM.png",
+    "keywords": "synapse x whitelisting, webserver whitelist",
+    "image": "heroku/nodejs",
+    "buildpacks": [
+        {
+            "url": "heroku/nodejs"
+        }
+    ],
+    "env": {
+        "token": {
+            "description": "The Discord Bot Token (https://discord.com/developers/applications)",
+            "required": true
+        },
+        "botID": {
+            "description": "Client_ID",
+            "required": true
+        },
+        "oauthv2link": {
+            "description": "oauthv2link. (https://discord.com/oauth2/authorize/)",
+            "required": false
+        }
+    }
+}

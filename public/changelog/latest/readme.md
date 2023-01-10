@@ -1,41 +1,76 @@
-# 👑 swagpex auth - pre release 👑
+# 👑 swagpex auth - RL001 👑
 
-https://user-images.githubusercontent.com/70854720/211551029-2ccf6106-406f-4868-b85d-4ce1a099ca1a.mov
+https://cdn.discordapp.com/attachments/1059780732412776498/1062350887470759977/RDT_20221227_190900.mp4
 
-*   bot has been finished
+*   Bugtests
 
-    ⬑ bot is coded fully in node.js (javascript)
+    ⬑ So far, there have been no bugs, if you find some.. please report them in the [issues tab](/issues)
 
-    ⬑ if you find any bugs, report them
+*   Beautiful HTML Site Design
 
-*   webserver has been fully coded
+    ⬑ The site, which will stay static, loads in when you access the following endpoints: (/,/auth,/script)
 
-    ⬑ webserver passes authentication stresstest
+*   Webhook Notifications
 
-    ⬑ webserver is inacessible with any outside methods (afaik)
+    ⬑ swagpex auth includes a webhook system (Proxy) which you can use to monitor on how many people are using your script.
 
-    ⬑ webserver has also been stresstested with 1 error out of 1000.
-
-*   whitelist system is serversided
-
-    ⬑ INACESSIBLE from any endpoint, even if you include specified methods
-
-    ⬑ block 'o cheese been removed....
+    ⬑ To save time, if you want to change your webhook URL, just change out the WEBHOOK_URI in your .env file
 
 
-
-A discord webhook will be executed on successful authentication, on failed authentication, and on cracking attempts :) Examples
-
+## How to test if your endpoints are working
 
 
-[![sucessfulauth](https://user-images.githubusercontent.com/70854720/211399456-49288a25-1333-4246-bd3b-ccee10edfa2d.png)](https://user-images.githubusercontent.com/70854720/211399456-49288a25-1333-4246-bd3b-ccee10edfa2d.png)
+* Example on the /script endpoint:
 
-`successful authentication`
+```js
+const request = require('request');
 
-[![failauth](https://user-images.githubusercontent.com/70854720/211399535-8a48b7ce-00df-4580-8a5d-4b06b8a3efbe.png)](https://user-images.githubusercontent.com/70854720/211399535-8a48b7ce-00df-4580-8a5d-4b06b8a3efbe.png)
 
-`failed authentication`
+const options = {
+    method: 'GET',
+    url: 'https://your-domain.xyz/script',
+    rejectUnauthorized: false, // this is useful when your SSL doesnt accept outside connections (debug only)
+    headers: {
+      'fingerprint': 'KEY-GOES-HERE'
+    }
+  };
+  
+  request(options, (error, res, body) => {
+    if (error) {
+      console.error(error);
+      return;
+    }
+  
+    console.log(`Status: ${res.statusCode}`);
+    console.log(body);
+  });
+```
 
-[![crakcingattempt](https://user-images.githubusercontent.com/70854720/211399616-161ba97c-8302-40c2-beaa-25dbbbe5e271.png)](https://user-images.githubusercontent.com/70854720/211399616-161ba97c-8302-40c2-beaa-25dbbbe5e271.png)
+* Example on the /auth endpoint:
 
-`cracking attempt`
+```js
+const request = require('request');
+
+const options = {
+  method: 'POST',
+  rejectUnauthorized: false, // this is useful when your SSL doesnt accept outside connections (debug only)
+  url: 'https://your-domain.xyz/auth',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    key: 'KEY-GOES-HERE',
+    hwid: 'HWID-GOES-HERE'
+  })
+};
+
+request(options, (error, res, body) => {
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  console.log(`Status: ${res.statusCode}`);
+  console.log(body);
+});
+```

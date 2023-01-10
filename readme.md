@@ -12,6 +12,10 @@
   </a>
   <img src="https://img.shields.io/static/v1?label=Release&message=PRE-RELEASE&color=red">
 </p>
+<p align="center">
+<a>
+<img src="https://img.shields.io/maintenance/yes/2023">
+</p>
 
 <p align="center">
   <a>

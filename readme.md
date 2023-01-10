@@ -10,7 +10,7 @@
   <a href="https://discord.gg/4kRf7vVfrt">
     <img src="https://img.shields.io/discord/1012316104061890710?color=7489d5&logo=discord&logoColor=ffffff" />
   </a>
-  <img src="https://img.shields.io/static/v1?label=Release&message=RELEASE&color=green">
+  <img src="https://img.shields.io/static/v1?label=Staging&message=RELEASE&color=green">
 </p>
 <p align="center">
 <a>

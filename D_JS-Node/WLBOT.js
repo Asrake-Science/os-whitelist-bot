@@ -4,7 +4,7 @@ require("dotenv").config()
 const { Client, Intents, MessageEmbed } = require("discord.js")
 const client = new Client({
     fetchAllMembers: true,
-    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.DIRECT_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_VOICE_STATES],
+    intents: 65535, // do not tamper
     ws: { properties: { $browser: "Discord iOS" || "Discord Desktop" } }
     
 
@@ -39,7 +39,7 @@ const rest = new REST({ version: "10" }).setToken(process.env.token);
     }
 })();
 
-["slash", "anticrash", ].forEach(handler => {
+["slash", "anticrash" ].forEach(handler => {
     require(`./handlers/${handler}`)(client)
 })
 

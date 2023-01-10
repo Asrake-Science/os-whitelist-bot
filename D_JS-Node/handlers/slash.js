@@ -1,5 +1,5 @@
 const { readdirSync } = require("fs")
-console.log("\x1b[33m%s\x1b[0m", "Grapheme - Moderation bot for Asrake Inc.")
+console.log("\x1b[33m%s\x1b[0m", "swagauth - whitelisting bot :).")
 module.exports = (client) => {
     try {
         let amount = 0

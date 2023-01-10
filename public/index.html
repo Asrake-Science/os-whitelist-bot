@@ -575,7 +575,7 @@
                                                             document.getElementById("Favorited").innerHTML = repoData.stargazers_count;
 
                                                             // Set the text of the ctl00_cphRoblox_FeaturedGames_VisitedPanel div element to the number of watchers
-                                                            document.getElementById("ctl00_cphRoblox_FeaturedGames_VisitedPanel").innerHTML = repoData.watchers_count;
+                                                            document.getElementById("WatchersCount").innerHTML = repoData.subscribers_count;
                                                         })
                                                         .catch((err) => {
                                                             console.log(err);
@@ -600,7 +600,7 @@
                                                 <div id="Favorited" class="PlaceStatValue">failed to fetch</div>
                                                 <div id="VisitedPanelLabelDiv" class="PlaceStatLabel">Total Watchers:
                                                 </div>
-                                                <div id="ctl00_cphRoblox_FeaturedGames_VisitedPanel"
+                                                <div id="WatchersCount"
                                                     class="Visited PlaceStatValue">failed to fetch</div>
                                                 <div id="LastUpdateLabelDiv" class="PlaceStatLabel">Total Forks:</div>
                                                 <div id="ForkCount" class="PlaceStatValue">failed to fetch</div>

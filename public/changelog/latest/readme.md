@@ -20,7 +20,7 @@
 
 *   Bugtests
 
-    ⬑ So far, there have been no bugs, if you find some.. please report them in the [issues tab](/issues)
+    ⬑ So far, there have been no bugs, if you find some.. please report them in the [issues tab](https://github.com/Asrake-Science/os-whitelist-bot/issues)
 
 *   Beautiful HTML Site Design
 

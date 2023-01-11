@@ -5,7 +5,7 @@
 
 <p align="center">
 <a>
- <img src="https://img.shields.io/badge/Version-RL--001-brightgreen"/>
+ <img src="https://img.shields.io/badge/Version-RL--002-brightgreen"/>
 </a>
   <a href="https://discord.gg/4kRf7vVfrt">
     <img src="https://img.shields.io/discord/1012316104061890710?color=7489d5&logo=discord&logoColor=ffffff" />

@@ -30,3 +30,7 @@
 </p>
 
 ## More Coming Soon
+
+## Changelog
+
+View the Changelog [here](https://github.com/Asrake-Science/os-whitelist-bot/tree/main/public/changelog/latest)

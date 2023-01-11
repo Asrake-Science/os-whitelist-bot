@@ -28,7 +28,7 @@
 
     ⬑ If you find more bugs please report them in the [issues tab](https://github.com/Asrake-Science/os-whitelist-bot/issues)
 
-* PS
+## Some Info 
 
 When choosing to host this, please DO NOT use wordpress.... its defeats the point of security ._,
 

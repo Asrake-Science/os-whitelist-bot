@@ -1,7 +1,7 @@
 const Enmap = require("enmap");
 const Discord = require("discord.js")
 require("dotenv").config()
-const { Client, Intents, MessageEmbed } = require("discord.js")
+const { Client, Intents, MessageEmbed, ActivityType } = require("discord.js")
 const client = new Client({
     fetchAllMembers: true,
     intents: 65535, // do not tamper
@@ -58,28 +58,26 @@ client.on("ready", () => {
     
 
     const activities_list = [
-//        { type: 'WATCHING',  browser: "DISCORD JS",  message: ` ${client.guilds.cache.size} servers`  },
-        { type: 'WATCHING',  browser: "DISCORD JS", message:  ` ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} users` },
-        { type: 'LISTENING', browser: "DISCORD JS", message: 'pings' },
-        { type: 'COMPETING', browser: "DISCORD JS", message: "Asrake Social Department"},
-        { type: 'LISTENING', browser: "Discord iOS", message: "Spotify"},
-        { type: 'PLAYING', browser: "DISCORD JS", message: 'whitelist bingo'},
-        { type: 'WATCHING', browser: "DISCORD JS", message: 'swagpex hub'}
+        { type: ActivityType.Watching,  browser: "DISCORD JS", message:  ` ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} users` },
+        { type: ActivityType.Listening, browser: "DISCORD JS", message: 'pings' },
+        { type: ActivityType.Listening, browser: "Discord iOS", message: "Spotify"},
+        { type: ActivityType.Competing, browser: "DISCORD JS", message: 'whitelist bingo'},
+        { type: ActivityType.Watching, browser: "DISCORD JS", message: 'swagpex hub'}
     ];
     let index = 0
     setInterval(() => {
         if (index === activities_list.length) index = 0
         const status = activities_list[index]
 
-        client.user.setActivity(`${status.message}`, {
-            type: status.type,
-            browser: "Discord iOS" || "Discord Desktop"
+        client.user.setPresence({
+            activities: [{ name: `${status.message}`, type: status.type  }]
 
         })
         index++
-        console.log("Changed Activity Status!")
+        console.log("Changing Status!")
     }, 30000);
 });
+
 
 client.on("messageCreate", async (message) => {
     if (message.attachments.first() !== undefined && message.content !== "") {
@@ -133,13 +131,13 @@ client.on("interactionCreate", async (interaction) => {
               client.logger.warn("You need to specify options to send an embed!");
               return;
             }
-            const embed = new Discord.MessageEmbed();
+            const embed = new EmbedBuilder();
             Object.assign(embed, options);
             if (options.author) {
               embed.setAuthor(options.author.name, options.author.image, options.author.url)
             }
             if (options.footer) {
-              embed.setFooter(options.footer);
+              embed.setFooter({ text: options.footer });
             }
             message.editReply({ embeds: [embed]});
           }

@@ -1,7 +1,9 @@
-const { guild, ApplicationCommandInteractionOptionResolver, Message, MessageActionRow, MessageButton, MessageEmbed, Permissions } = require('discord.js')
+const { guild, ApplicationCommandInteractionOptionResolver, Message, MessageActionRow, MessageButton, EmbedBuilder, Permissions } = require('discord.js')
 const Discord = require("discord.js")
 const fs = require('fs');
+const path = require('path')
 
+const whitelistjson = path.resolve("../whitelist.json")
 module.exports = {
     name: 'whitelist',
     description: 'Manage the script Whitelist',
@@ -110,13 +112,14 @@ module.exports = {
                 if (users.length === 0) {
                     await interaction.reply('There are no whitelisted users.');
                 } else {
-                    const embed = new Discord.MessageEmbed()
+                    const embed = new EmbedBuilder()
                         .setTitle('Whitelisted Users')
                         .setDescription(`Page ${page}/${pages}`)
                         .setColor(0x00AE86)
-                        .setFooter(`Use "whitelist list" to view different pages.`);
+                        .setFooter({ text: 'swagpex auth', iconURL: 'https://cdn.discordapp.com/attachments/1043863259859660819/1062739548649574481/ambasing.png' });
                     for (const user of users) {
-                        embed.addField(`${user.serial}.`, `<@${user.userid}>`);
+                        embed.addFields([
+                            { name: `${user.serial}.`, value: `<@${user.userid}>` }]);
                     }
                     await interaction.reply({ embeds: [embed] });
                 }
@@ -136,7 +139,7 @@ module.exports = {
 
 function resetHWID(user_id) {
     try {
-        const whitelist = JSON.parse(fs.readFileSync('whitelist.json'));
+        const whitelist = JSON.parse(fs.readFileSync(whitelistjson));
         const user = whitelist.hwids.find(x => x.userid === user_id);
         if (!user) {
             return { error: `Script Buyer: <@${user_id}> not found in whitelist.` };
@@ -144,7 +147,7 @@ function resetHWID(user_id) {
             return { error: `Script Buyer: <@${user_id}> does not have a set HWID..` };
         } else {
             user.id = '';
-            fs.writeFileSync('whitelist.json', JSON.stringify(whitelist, null, 4));
+            fs.writeFileSync(whitelistjson, JSON.stringify(whitelist, null, 4));
             return { success: `HWID for Script Buyer: <@${user_id}> has been reset.` };
         }
     } catch (error) {
@@ -154,7 +157,7 @@ function resetHWID(user_id) {
 
 function addUserToWhitelist(user_id) {
     try {
-        const whitelist = JSON.parse(fs.readFileSync('whitelist.json'));
+        const whitelist = JSON.parse(fs.readFileSync(whitelistjson));
         const user = whitelist.hwids.find(x => x.userid === user_id);
         if (user) {
             return { error: `<@${user_id}> is already whitelisted!` };
@@ -180,7 +183,7 @@ function addUserToWhitelist(user_id) {
             scriptKey: null
         };
         whitelist.hwids.push(new_user);
-        fs.writeFileSync('whitelist.json', JSON.stringify(whitelist, null, 4));
+        fs.writeFileSync(whitelistjson, JSON.stringify(whitelist, null, 4));
         return { success: `<@${user_id}> has been added to the whitelist!` };
     } catch (err) {
         console.error(err);
@@ -190,14 +193,14 @@ function addUserToWhitelist(user_id) {
 
 function removeUserFromWhitelist(user_id) {
     try {
-        const whitelist = JSON.parse(fs.readFileSync('whitelist.json'));
+        const whitelist = JSON.parse(fs.readFileSync(whitelistjson));
         const index = whitelist.hwids.findIndex(x => x.userid === user_id);
         if (index === -1) {
             return { error: 'This user is not whitelisted!' };
         }
 
         whitelist.hwids.splice(index, 1);
-        fs.writeFileSync('whitelist.json', JSON.stringify(whitelist, null, 4));
+        fs.writeFileSync(whitelistjson, JSON.stringify(whitelist, null, 4));
         return { success: 'User successfully removed from the whitelist.' };
     } catch (err) {
         console.error(err);
@@ -207,7 +210,7 @@ function removeUserFromWhitelist(user_id) {
 
 function listWhitelistedUsers() {
     try {
-        const whitelist = JSON.parse(fs.readFileSync('whitelist.json'));
+        const whitelist = JSON.parse(fs.readFileSync(whitelistjson));
         const sortedhwids = whitelist.hwids.sort((a, b) => a.serial - b.serial);
         const page = 1;
         const itemsPerPage = 10;

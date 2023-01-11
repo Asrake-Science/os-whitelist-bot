@@ -1,7 +1,7 @@
 <p align="center">
   <img width="" src="https://raw.githubusercontent.com/Asrake-Science/os-whitelist-bot/main/public/stylesheet/assetstorage/allalalaa.png" />
 </p>
-<h1 align="center">👑 SWAGPEX AUTH - RL001 👑</h1>
+<h1 align="center">👑 SWAGPEX AUTH - RL002 👑</h1>
 
 <p align="center">
 <a>
@@ -18,75 +18,18 @@
 </video>
 </p>
 
-*   Bugtests
+## What's new?
 
-    ⬑ So far, there have been no bugs, if you find some.. please report them in the [issues tab](https://github.com/Asrake-Science/os-whitelist-bot/issues)
+*   Bug fixes
 
-*   Beautiful HTML Site Design
+    ⬑ fixed "cannot read whitelist.json"
 
-    ⬑ The site, which will stay static, loads in when you access the following endpoints: (/,/auth,/script)
+    ⬑ migrated discord.js v12 to v14, since new update = new features + more security i believe...
 
-*   Webhook Notifications
+    ⬑ If you find more bugs please report them in the [issues tab](https://github.com/Asrake-Science/os-whitelist-bot/issues)
 
-    ⬑ swagpex auth includes a webhook system (Proxy) which you can use to monitor on how many people are using your script.
+* PS
 
-    ⬑ To save time, if you want to change your webhook URL, just change out the WEBHOOK_URI in your .env file
+When choosing to host this, please DO NOT use wordpress.... its defeats the point of security ._,
 
-
-## How to test if your endpoints are working
-
-
-* Example on the /script endpoint:
-
-```js
-const request = require('request');
-
-
-const options = {
-    method: 'GET',
-    url: 'https://your-domain.xyz/script',
-    rejectUnauthorized: false, // this is useful when your SSL doesnt accept outside connections (debug only)
-    headers: {
-      'fingerprint': 'KEY-GOES-HERE'
-    }
-  };
-  
-  request(options, (error, res, body) => {
-    if (error) {
-      console.error(error);
-      return;
-    }
-  
-    console.log(`Status: ${res.statusCode}`);
-    console.log(body);
-  });
-```
-
-* Example on the /auth endpoint:
-
-```js
-const request = require('request');
-
-const options = {
-  method: 'POST',
-  rejectUnauthorized: false, // this is useful when your SSL doesnt accept outside connections (debug only)
-  url: 'https://your-domain.xyz/auth',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    key: 'KEY-GOES-HERE',
-    hwid: 'HWID-GOES-HERE'
-  })
-};
-
-request(options, (error, res, body) => {
-  if (error) {
-    console.error(error);
-    return;
-  }
-
-  console.log(`Status: ${res.statusCode}`);
-  console.log(body);
-});
-```
+Purchase a domain on godaddy.com or strato.de or whatever domain-seller is best for you. AND PLEASE either host it on a VPS (windows) or just ask your friend to host it, portforwarding is also an option...

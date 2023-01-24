@@ -3,7 +3,7 @@ const request = require('request');
 const app = express();
 const fs = require('fs')
 const https = require('https')
-
+const discordWebhook = "funny here."
 app.use(express.json());
 
 app.get('/script', (req, res) => {
@@ -104,7 +104,7 @@ function sendUnauthorizedNotification(req) {
   };
 
   request.post({
-    url: process.env.discordWebhook,
+    url: discordWebhook,
     json: payload
   }, (error, res, body) => {
     if (error) {
@@ -143,7 +143,7 @@ function sendToDiscordWebhook(req, userId) {
   };
 
   request.post({
-    url: process.env.discordWebhook,
+    url: discordWebhook,
     json: payload
   }, (error, res, body) => {
     if (error) {
@@ -200,7 +200,7 @@ function authenticate(req, callback) {
 
 
 function sUN_Script(req) {
-  const key = req.get('script-key');
+  const key = req.get('fingerprint');
   const ip = req.ip;
 
   const payload = {
@@ -231,7 +231,7 @@ function sUN_Script(req) {
   };
 
   request.post({
-    url: process.env.discordWebhook,
+    url: discordWebhook,
     json: payload
   }, (error, res, body) => {
     if (error) {
